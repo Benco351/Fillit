@@ -117,6 +117,6 @@ CREATE TABLE requested_shifts (
     request_employee_id integer NOT NULL,
     request_notes text NULL DEFAULT NULL,
     request_status request_status DEFAULT 'pending',
-    FOREIGN KEY (request_shift_id) REFERENCES avaliable_shifts(shift_id),
-    FOREIGN KEY (request_employee_id) REFERENCES employees(employee_id)
+    FOREIGN KEY (request_shift_id_fkey) REFERENCES avaliable_shifts(shift_id),
+    FOREIGN KEY (request_employee_id_fkey) REFERENCES employees(employee_id)
 );
