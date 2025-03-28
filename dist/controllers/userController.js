@@ -42,13 +42,32 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteUser = exports.createUser = exports.getUser = exports.getUsers = void 0;
+exports.deleteUser = exports.createUser = exports.getUser = exports.getUsers = exports.updateUser = void 0;
 const userService = __importStar(require("../services/userService"));
 const apiResponse_1 = require("../utils/apiResponse");
 const logger_1 = require("../config/logger");
+const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const user = yield userService.updateUser(Number(req.params.id), req.body);
+        if (!user) {
+            res.status(404).json({ error: 'User not found' });
+            return; // Explicitly return after sending the response
+        }
+        res.json((0, apiResponse_1.apiResponse)(user, 'User updated'));
+    }
+    catch (err) {
+        logger_1.logger.error(`updateUser error: ${err}`);
+        next(err);
+    }
+});
+exports.updateUser = updateUser;
 const getUsers = (_req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const users = yield userService.getAllUsers();
+        if (!users) {
+            res.status(404).json({ error: 'No users found' });
+            return; // Explicitly return after sending the response
+        }
         logger_1.logger.info('Fetched all users');
         res.json((0, apiResponse_1.apiResponse)(users));
     }
@@ -58,14 +77,17 @@ const getUsers = (_req, res, next) => __awaiter(void 0, void 0, void 0, function
     }
 });
 exports.getUsers = getUsers;
-const getUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+const getUser = (_req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const user = yield userService.getUserById(Number(req.params.id));
-        if (!user)
-            return res.status(404).json({ error: 'User not found' });
+        const user = yield userService.getUserById(Number(_req.params.id));
+        if (!user) {
+            res.status(404).json({ error: 'User not found' });
+            return; // Explicitly return after sending the response
+        }
         res.json((0, apiResponse_1.apiResponse)(user));
     }
     catch (err) {
+        logger_1.logger.error(`getUser error: ${err}`); // Added logging for getUser errors
         next(err);
     }
 });
@@ -85,8 +107,10 @@ exports.createUser = createUser;
 const deleteUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const success = yield userService.deleteUser(Number(req.params.id));
-        if (!success)
-            return res.status(404).json({ error: 'User not found' });
+        if (!success) {
+            res.status(404).json({ error: 'User not found' });
+            return; // Explicitly return after sending the response
+        }
         res.json((0, apiResponse_1.apiResponse)(null, 'User deleted'));
     }
     catch (err) {

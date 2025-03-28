@@ -1,7 +1,6 @@
 import { CreateUserDTO } from '../types/userSchema';
 
 interface User extends CreateUserDTO {
-  id: number;
 }
 
 let users: User[] = [];
@@ -9,7 +8,7 @@ let users: User[] = [];
 export const getAllUsers = async (): Promise<User[]> => users;
 
 export const createUser = async (data: CreateUserDTO): Promise<User> => {
-  const newUser = { id: Date.now(), ...data };
+  const newUser = {...data };
   users.push(newUser);
   return newUser;
 };
@@ -22,4 +21,12 @@ export const deleteUser = async (id: number): Promise<boolean> => {
   const initialLength = users.length;
   users = users.filter(user => user.id !== id);
   return users.length < initialLength;
+};
+
+export const updateUser = async (id: number, data: Partial<CreateUserDTO>): Promise<User | null> => {
+  const user = users.find(user => user.id === id);
+  if (!user) return null;
+  delete data.id; // Ensure `id` is not updated
+  Object.assign(user, data);
+  return user;
 };

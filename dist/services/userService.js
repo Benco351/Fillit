@@ -9,12 +9,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteUser = exports.getUserById = exports.createUser = exports.getAllUsers = void 0;
+exports.updateUser = exports.deleteUser = exports.getUserById = exports.createUser = exports.getAllUsers = void 0;
 let users = [];
 const getAllUsers = () => __awaiter(void 0, void 0, void 0, function* () { return users; });
 exports.getAllUsers = getAllUsers;
 const createUser = (data) => __awaiter(void 0, void 0, void 0, function* () {
-    const newUser = Object.assign({ id: Date.now() }, data);
+    const newUser = Object.assign({}, data);
     users.push(newUser);
     return newUser;
 });
@@ -29,3 +29,11 @@ const deleteUser = (id) => __awaiter(void 0, void 0, void 0, function* () {
     return users.length < initialLength;
 });
 exports.deleteUser = deleteUser;
+const updateUser = (id, data) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = users.find(user => user.id === id);
+    if (!user)
+        return null;
+    Object.assign(user, data);
+    return user;
+});
+exports.updateUser = updateUser;

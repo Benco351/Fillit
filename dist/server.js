@@ -17,11 +17,12 @@ const app_1 = __importDefault(require("./app"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const PORT = parseInt(process.env.PORT || '3000', 10);
+console.log(process.env.PORT); //UNDEFIEND
 (() => __awaiter(void 0, void 0, void 0, function* () {
     // Connect to both databases before starting the server
-    // await connectMongoDB();
+    // await connectMongoDB(); 
     // await connectPostgres();
     app_1.default.listen(PORT, () => {
-        console.log("Server is running on port " + PORT);
+        console.log(`Server  a is running on port ${PORT}`);
     });
 }))();

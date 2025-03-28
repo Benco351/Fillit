@@ -39,7 +39,8 @@ const validateMiddleware_1 = require("../middlewares/validateMiddleware");
 const userSchema_1 = require("../types/userSchema");
 const router = (0, express_1.Router)();
 router.get('/', userController.getUsers);
-// router.get('/:id', userController.getUser);
+router.get('/:id', userController.getUser);
 router.post('/', (0, validateMiddleware_1.validate)(userSchema_1.CreateUserSchema), userController.createUser);
-// router.delete('/:id', userController.deleteUser); // No validation schema needed for delete
+router.delete('/:id', userController.deleteUser); // Uncommented the deleteUser route
+router.put('/:id', userController.updateUser); // Added the updateUser route
 exports.default = router;
