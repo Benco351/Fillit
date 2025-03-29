@@ -10,6 +10,10 @@ output "eb_environment_url" {
   value = module.elasticbeanstalk.environment_url
 }
 
+output "amplify_cloudfront_domain" {
+  value = module.amplify_frontend.cloudfront_domain_name
+}
+
 output "pipeline_name" {
   value = module.codepipeline.pipeline_name
 }

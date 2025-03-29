@@ -31,4 +31,31 @@ resource "aws_elastic_beanstalk_environment" "env" {
     name      = "IamInstanceProfile"
     value     = var.eb_iam_role
   }
+
+  # RDS connection settings as environment variables
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name      = "DB_HOST"
+    value     = var.db_endpoint
+  }
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name      = "DB_PORT"
+    value     = var.db_port
+  }
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name      = "DB_NAME"
+    value     = var.db_name
+  }
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name      = "DB_USER"
+    value     = var.db_username
+  }
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name      = "DB_PASSWORD"
+    value     = var.db_password
+  }
 }
