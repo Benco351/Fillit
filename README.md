@@ -30,7 +30,6 @@ AI_lambda/
 
 Contains the source code AWS lambda that used as AI chat
 
-Note: The .git folders from the original repositories were removed during the migration to avoid embedding separate Git repositories within this one.
 
 📦 How the Aggregation Was Performed:
 
@@ -43,5 +42,7 @@ All .git metadata from the source repositories was excluded to maintain a clean 
 Changes were committed and pushed into the mvp_aggregation branch of this repository.
 
 ⚠️ Important Notes:
+
+Note: The .git folders from the original repositories were removed during the migration to avoid embedding separate Git repositories within this one.
 
 This method does not preserve Git history from the original repositories.
