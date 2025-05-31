@@ -28,7 +28,8 @@ Contains the source code AWS lambda that used as AI chat
 
 Note: The .git folders from the original repositories were removed during the migration to avoid embedding separate Git repositories within this one.
 
-📦 How the Aggregation Was Performed Worktrees were used to temporarily check out the relevant branches from the source repositories without cloning them fully.
+📦 How the Aggregation Was Performed:
+Worktrees were used to temporarily check out the relevant branches from the source repositories without cloning them fully.
 
 The contents of those branches were copied into the corresponding folders (Backend/, Frontend/) in this repository.
 
@@ -36,4 +37,5 @@ All .git metadata from the source repositories was excluded to maintain a clean 
 
 Changes were committed and pushed into the mvp_aggregation branch of this repository.
 
-⚠️ Important Notes This method does not preserve Git history from the original repositories.
+⚠️ Important Notes:
+This method does not preserve Git history from the original repositories.
