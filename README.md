@@ -29,6 +29,7 @@ Contains the source code AWS lambda that used as AI chat
 Note: The .git folders from the original repositories were removed during the migration to avoid embedding separate Git repositories within this one.
 
 📦 How the Aggregation Was Performed:
+
 Worktrees were used to temporarily check out the relevant branches from the source repositories without cloning them fully.
 
 The contents of those branches were copied into the corresponding folders (Backend/, Frontend/) in this repository.
