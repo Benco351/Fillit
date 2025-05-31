@@ -1,14 +1,17 @@
 🧩 Aggregation of Multiple Repositories This repository (Fillit) serves as an aggregation point for several codebases originally developed and maintained in separate repositories. The mvp_aggregation branch consolidates these components into a unified structure for easier development, deployment, and collaboration.
 
 🔧 Structure of the Aggregated Branch
+
 Backend/
 Contains the source code from the development branch of the Fillit_Backend repository. 
 Here is the link to the actual Backend repository:
+
 https://github.com/Benco351/Fillit_Backend
 
 Frontend/
 Contains the source code from the front_recent branch of the Fillit_Frontend repository.
 Here is the link to the actual Frontend repository:
+
 https://github.com/Benco351/Fillit_Frontend
 
 Architecutre/
