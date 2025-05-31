@@ -2,7 +2,7 @@ from __future__ import annotations
 import json
 import logging
 from typing import Dict, Any
-
+from datetime import datetime
 from openai import OpenAI
 from config import Config
 from tailored_utils import call_function, select_tools
@@ -51,12 +51,14 @@ def lambda_handler(event: Dict[str, Any], _context):
                 "body": json.dumps({"error": "user_prompt is required"})}
 
     # ---------- initial system + user messages -------------
+    now = datetime.now()
     messages = [
         {
             "role": "developer",
             "content": (
                 "You are an AI assistant on a shift-management platform. "
                 f"You are limited to {config.max_tokens} tokens in your response."
+                f"current date and time: {now}"
             ),
         },
         {"role": "user", "content": user_prompt},
