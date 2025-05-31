@@ -28,7 +28,7 @@ https://github.com/Benco351/Fillit_Architecture
 
 AI_lambda/
 
-Contains the source code AWS lambda that used as AI chat
+Contains the source code of AWS lambda that used as AI chat
 
 
 📦 How the Aggregation Was Performed:
