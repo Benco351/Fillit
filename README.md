@@ -1,4 +1,6 @@
-🧩 Aggregation of Multiple Repositories This repository (Fillit) serves as an aggregation point for several codebases originally developed and maintained in separate repositories. 
+🧩 Aggregation of Multiple Repositories:
+
+This repository (Fillit) serves as an aggregation point for several codebases originally developed and maintained in separate repositories. 
 The mvp_aggregation branch consolidates these components into a unified structure for easier development, deployment, and collaboration.
 
 🔧 Structure of the Aggregated Branch
