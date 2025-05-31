@@ -1,0 +1,22 @@
+//////////////////////////////////////
+// Cognito Outputs
+//////////////////////////////////////
+output "user_pool_id" {
+  description = "The ID of the Cognito user pool."
+  value       = aws_cognito_user_pool.this.id
+}
+
+output "user_pool_arn" {
+  description = "The ARN of the Cognito user pool."
+  value       = aws_cognito_user_pool.this.arn
+}
+
+output "user_pool_client_id" {
+  description = "The ID of the Cognito user pool client."
+  value       = aws_cognito_user_pool_client.this.id
+}
+
+output "user_pool_domain" {
+  description = "The domain for the Cognito user pool."
+  value       = aws_cognito_user_pool_domain.this.domain
+}
